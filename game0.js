@@ -24,8 +24,6 @@ The user moves a cube around the board trying to knock balls into a cone
 	var startScene, startCamera, startText;
 
 
-
-
 	var controls =
 	     {fwd:false, bwd:false, left:false, right:false,
 				speed:10, fly:false, reset:false,
