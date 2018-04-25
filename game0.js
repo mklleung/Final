@@ -413,7 +413,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 
 
-	function createSkyBox(image,k){
+	function createSkyBox(image,k, level){
 		// creating a textured plane which receives shadows
 		var geometry = new THREE.SphereGeometry( 80, 80, 80 );
 		var texture = new THREE.TextureLoader().load( '../images/'+image );
@@ -426,7 +426,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		var mesh = new THREE.Mesh( geometry, material, 0 );
 
 		mesh.receiveShadow = false;
-
+		mesh.position.set(level*100, level*100, level*100);
 
 		return mesh
 		// we need to rotate the mesh 90 degrees to make it horizontal not vertical
@@ -757,6 +757,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 				case "level2":
 					renderer.render(level2Scene, level2Camera);
+
 					updateAvatar();
 					edgeCam.lookAt(avatar.position);
 					scene.simulate();
