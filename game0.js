@@ -44,7 +44,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 		startScene = initScene();
 		var geometry = new THREE.SphereGeometry( 80, 80, 80 );
-		var texture = new THREE.TextureLoader().load( '..Final/images/startscreen.png' );
+		var texture = new THREE.TextureLoader().load( '../images/startscreen.png' );
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapT = THREE.RepeatWrapping;
 		texture.repeat.set( 4, 4 );
@@ -381,7 +381,7 @@ The user moves a cube around the board trying to knock balls into a cone
 	function createGround(image){
 		// creating a textured plane which receives shadows
 		var geometry = new THREE.PlaneGeometry( 180, 180, 128 );
-		var texture = new THREE.TextureLoader().load( '..Final/images/'+image );
+		var texture = new THREE.TextureLoader().load( '../images/'+image );
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapT = THREE.RepeatWrapping;
 		texture.repeat.set( 15, 15 );
@@ -411,7 +411,7 @@ The user moves a cube around the board trying to knock balls into a cone
 	function createSkyBox(image,k){
 		// creating a textured plane which receives shadows
 		var geometry = new THREE.SphereGeometry( 80, 80, 80 );
-		var texture = new THREE.TextureLoader().load( '..Final/images/'+image );
+		var texture = new THREE.TextureLoader().load( '../images/'+image );
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapT = THREE.RepeatWrapping;
 		texture.repeat.set( k, k );
@@ -498,7 +498,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 		function createBox(){
 			var geometry = new THREE.BoxGeometry(5,40,5);
-			var texture = new THREE.TextureLoader().load('..Final/images/skyScraper.jpg');
+			var texture = new THREE.TextureLoader().load('../images/skyScraper.jpg');
 			texture.wrapS = THREE.RepeatWrapping;
 			texture.wrapT = THREE.RepeatWrapping;
 			texture.repeat.set( 1, 1 );
