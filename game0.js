@@ -22,7 +22,8 @@ The user moves a cube around the board trying to knock balls into a cone
 	var endScene, endCamera, endText;
 	var endScene2, endCamera2, endText2;
 	var startScene, startCamera, startText;
-
+	var level2Scene, level2Camera;
+	var level3Scene, level3Camera;
 
 	var controls =
 	     {fwd:false, bwd:false, left:false, right:false,
@@ -103,6 +104,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 	function createLevel2() {
 
+		level2Scene = initScene();
 		var light1 = createPointLight();
 		light1.position.set(0,200,20);
 		scene.add(light1);
@@ -110,9 +112,9 @@ The user moves a cube around the board trying to knock balls into a cone
 		scene.add(light0);
 
 		// create main camera
-		camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
-		camera.position.set(0,50,0);
-		camera.lookAt(0,0,0);
+		level2Camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
+		level2Camera.position.set(0,50,0);
+		level2Camera.lookAt(0,0,0);
 
 		var ground = createGround('grass.png');
 		scene.add(ground);
@@ -153,6 +155,8 @@ The user moves a cube around the board trying to knock balls into a cone
 		crate4 = createCrate();
 		crate4.position.set(-15,3,10);
 		scene.add(crate4);
+
+
 	}
 
 	function createMainScene(){
@@ -509,7 +513,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 
 
-	function createBall(){
+	function createBall(scene){
 		//var geometry = new THREE.SphereGeometry( 4, 20, 20);
 		var geometry = new THREE.SphereGeometry( 1, 16, 16);
 		var material = new THREE.MeshLambertMaterial( { color: 0xffff00} );
@@ -525,7 +529,7 @@ The user moves a cube around the board trying to knock balls into a cone
 					gameState.score += 1;  // add one to the score
 					if (gameState.score==numBalls) {
 						soundEffect('harp.wav');
-						gameState.scene='youwon';
+						gameState.scene= scene;
 					}
 					mesh.position.y = mesh.position.y - 100;
 					mesh.__dirtyPosition = true;
@@ -560,7 +564,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			return;
 		}
 		if (gameState.scene == 'youwon' && event.key=='k') {
-			gameState.scene = 'level2';
+			gameState.scene = 'start';
 			gameState.score = 0;
 			//addBalls();
 			return;
@@ -646,7 +650,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 	function p(event) {
 
-		if (gameState.scene == 'startScene' && event.key=='P') {
+		if (gameState.scene == 'start' && event.key=='P') {
 			gameState.scene = 'main';
 			gameState.score = 0;
 			//addBalls();
@@ -668,7 +672,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
     if(gameState.scene == 'youwon' && event.key == 'k') {
 
-      gameState.scene = 'level2';
+      gameState.scene = 'start';
       gameState.score = 0;
       return;
     }
