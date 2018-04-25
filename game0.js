@@ -102,6 +102,59 @@ The user moves a cube around the board trying to knock balls into a cone
 			createMainScene();
 	}
 
+	function createLevel2() {
+
+		var light1 = createPointLight();
+		light1.position.set(0,200,20);
+		scene.add(light1);
+		var light0 = new THREE.AmbientLight( 0xffffff,0.25);
+		scene.add(light0);
+
+		// create main camera
+		camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
+		camera.position.set(0,50,0);
+		camera.lookAt(0,0,0);
+
+		var ground = createGround('grass.png');
+		scene.add(ground);
+		var skybox = createSkyBox('sky.jpg',1);
+		scene.add(skybox);
+
+		avatarCam = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
+		avatar = createAvatar();
+		avatar.translateY(20);
+		avatarCam.translateY(-4);
+		avatarCam.translateZ(3);
+		scene.add(avatar);
+		gameState.camera = avatarCam;
+
+		edgeCam = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
+		edgeCam.position.set(20,20,10);
+
+		numBalls = 3;
+		for (var i=0; i<3; i++){
+			ball = createBall();
+			ball.position.set(randN(5)+15,randN(5)+15,randN(5)+15);
+			scene.add(ball);
+
+		}
+
+		crate = createCrate();
+		crate.position.set(0,3,15);
+		scene.add(crate);
+
+		crate2 = createCrate();
+		crate2.position.set(-5,3,17);
+		scene.add(crate2);
+
+	 	crate3= createCrate();
+		crate3.position.set(-10,3,2);
+		scene.add(crate3);
+
+		crate4 = createCrate();
+		crate4.position.set(-15,3,10);
+		scene.add(crate4);
+	}
 
 	function createMainScene(){
       // setup lighting
@@ -428,10 +481,23 @@ The user moves a cube around the board trying to knock balls into a cone
 				)
 	}
 
+		function createCrate() {
+
+			var geometry = new THREE.BoxGeometry(5,10,5);
+			var texture = new THREE.TextureLoader().load('../images/crate.gif');
+			texture.wrapS = THREE.RepeatWrapping;
+			texture.wrapT = THREE.RepeatWrapping;
+			texture.repeat.set( 1, 1 );
+			var material = new THREE.MeshLambertMaterial( { color: 0xffffff,  map: texture ,side:THREE.DoubleSide} );
+			var pmaterial = new Physijs.createMaterial(material,0.9,0.5);
+			var mesh = new Physijs.ConeMesh( geometry, pmaterial, 0 );
+			mesh.castShadow = true;
+			return mesh;
+		}
 
 		function createBox(){
 			var geometry = new THREE.BoxGeometry(5,40,5);
-			var texture = new THREE.TextureLoader().load( '../images/skyScraper.jpg' );
+			var texture = new THREE.TextureLoader().load('../images/skyScraper.jpg');
 			texture.wrapS = THREE.RepeatWrapping;
 			texture.wrapT = THREE.RepeatWrapping;
 			texture.repeat.set( 1, 1 );
@@ -508,7 +574,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			return;
 		}
 		if (gameState.scene == 'youlose' && event.key=='r') {
-			gameState.scene = 'main';
+			gameState.scene = 'start';
 			gameState.score = 0;
 			//addBalls();
 			return;
@@ -672,6 +738,14 @@ The user moves a cube around the board trying to knock balls into a cone
 				}
 				break;
 
+				case "level2":
+					updateAvatar();
+					edgeCam.lookAt(avatar.position);
+					scene.simulate();
+					if (gameState.camera!= 'none'){
+						renderer.render( scene, gameState.camera );
+					}
+				break;
 			default:
 			  console.log("don't know the scene "+gameState.scene);
 
