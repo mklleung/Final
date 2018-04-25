@@ -592,6 +592,12 @@ The user moves a cube around the board trying to knock balls into a cone
 			//addBalls();
 			return;
 		}
+		if(event.key == '5') {
+
+			createLevel2();
+			gameState.scene = 'level2';
+			gameState.score = 0;
+		}
 		// this is the regular scene
 		switch (event.key){
 			// change the way the avatar is moving
@@ -616,7 +622,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			case "1": gameState.camera = camera; break;
 			case "2": gameState.camera = avatarCam; break;
       case "3": gameState.camera = edgeCam; break;
-
+			case "5": gameState.scene = 'level2'; break;
 			// move the camera around, relative to the avatar
 			case "ArrowLeft": avatarCam.translateY(1);break;
 			case "ArrowRight": avatarCam.translateY(-1);break;
@@ -660,6 +666,11 @@ The user moves a cube around the board trying to knock balls into a cone
 			return;
 		}
 
+	}
+
+	function 5(event) {
+
+		createLevel2();
 	}
 
 	function color(event) {
@@ -745,6 +756,7 @@ The user moves a cube around the board trying to knock balls into a cone
 				break;
 
 				case "level2":
+					renderer.render(level2Scene, level2Camera);
 					updateAvatar();
 					edgeCam.lookAt(avatar.position);
 					scene.simulate();
