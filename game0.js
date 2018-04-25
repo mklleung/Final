@@ -212,7 +212,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 			building2 = createBox();
 			building2.position.set(20,3,12);
-			building2.rotateX(90)
+			building2.rotateX(45)
 			scene.add(building2);
 
 			building3 = createBox();
