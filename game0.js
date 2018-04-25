@@ -494,6 +494,12 @@ The user moves a cube around the board trying to knock balls into a cone
 			//addBalls();
 			return;
 		}
+		if (gameState.scene == 'youwon' && event.key=='k') {
+			gameState.scene = 'level2';
+			gameState.score = 0;
+			//addBalls();
+			return;
+		}
 		// first we handle the "play again" key in the "youwon" scene
 		if (gameState.scene == 'youwon' && event.key=='r') {
 			gameState.scene = 'main';
@@ -529,6 +535,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			case "y": controls.color = true; break;
           console.log("space!!");
           break;
+		  case "k": controls.k = true; break;
       case "h": controls.reset = true; break;
 
 
@@ -591,6 +598,16 @@ The user moves a cube around the board trying to knock balls into a cone
 			avatar.material.color.setHex( 0xffffff );
 		}
 	}
+
+	function k(event) {
+
+    if(gameState.scene == 'youwon' && event.key == 'k') {
+
+      gameState.scene = 'level2';
+      gameState.score = 0;
+      return;
+    }
+  }
 
   function updateAvatar(){
 		"change the avatar's linear or angular velocity based on controls state (set by WSAD key presses)"
