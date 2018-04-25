@@ -211,14 +211,17 @@ The user moves a cube around the board trying to knock balls into a cone
 			// This part adds the buildings the helicopter avoids.
 			building1 = createBox();
 			building1.position.set(10,3,7);
+			building1.rotateX(45)
 			scene.add(building1);
 
 			building2 = createBox();
 			building2.position.set(20,3,12);
+			building2.rotateY(45)
 			scene.add(building2);
 
 			building3 = createBox();
 			building3.position.set(5,3,3);
+			building3.rotateZ(45)
 			scene.add(building3);
 
 			building4 = createBox();
