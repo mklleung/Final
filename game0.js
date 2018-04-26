@@ -104,10 +104,12 @@ The user moves a cube around the board trying to knock balls into a cone
 
 	function createLevel3() {
 
+		gameState.scene = "level3";
 		console.log("Level 3");
 		scene.remove(crate);
 		scene.remove(crate2);
 		scene.remove(crate3);
+		scene.remove(crate4);
 		scene.remove(ball2);
 		numBalls = 3;
 		ball3 = createBall3();
@@ -118,6 +120,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 	function createLevel2() {
 
+		gameState.scene = "level2";
 		scene.remove(building1);
 		scene.remove(building2);
 		scene.remove(building3);
