@@ -43,7 +43,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 		startScene = initScene();
 		var geometry = new THREE.SphereGeometry( 80, 80, 80 );
-		var texture = new THREE.TextureLoader().load( '../images/startscreen.png' );
+		var texture = new THREE.TextureLoader().load( '../images/startscreen.png');
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapT = THREE.RepeatWrapping;
 		texture.repeat.set( 4, 4 );
@@ -665,11 +665,6 @@ The user moves a cube around the board trying to knock balls into a cone
 			return;
 		}
 
-	}
-
-	function 5(event) {
-
-		createLevel2();
 	}
 
 	function color(event) {
