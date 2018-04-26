@@ -754,15 +754,15 @@ The user moves a cube around the board trying to knock balls into a cone
 				}
 				break;
 
-				case "level2":
-					renderer.render(level2Scene, level2Camera);
+			case "level2":
+				renderer.render(level2Scene, level2Camera);
 
-					updateAvatar();
-					edgeCam.lookAt(avatar.position);
-					scene.simulate();
-					if (gameState.camera!= 'none'){
-						renderer.render( scene, gameState.camera );
-					}
+				updateAvatar();
+				edgeCam.lookAt(avatar.position);
+				//scene.simulate();
+				if (gameState.camera!= 'none'){
+					renderer.render( scene, gameState.camera );
+				}
 				break;
 			default:
 			  console.log("don't know the scene "+gameState.scene);
