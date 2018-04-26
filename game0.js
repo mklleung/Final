@@ -808,10 +808,6 @@ The user moves a cube around the board trying to knock balls into a cone
 
 				case "level2":
 					updateAvatar();
-					crate.rotateX(0.1);
-					crate.rotateY(0.1);
-					crate2.rotateY(0.1);
-					crate2.rotateX(0.1);
 					edgeCam.lookAt(avatar.position);
 					scene.simulate();
 					if (gameState.camera!= 'none'){
@@ -821,7 +817,7 @@ The user moves a cube around the board trying to knock balls into a cone
 				var t = 0;
 				case "level3":
 					ball3.rotateY(0.01);
-					ball3.rotation.Y += 0.005;
+					ball3.rotation.y += 0.005;
 					ball3.position.x = 20*Math.cos(t) + 0;
           ball3.position.z = 20*Math.sin(t) + 0;
 					updateAvatar();
