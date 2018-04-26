@@ -140,7 +140,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		scene.add(box1);
 		
 		var box2 = createBox2();
-		box2.position.set(15,9,-10);
+		box2.position.set(15,9,0);
 		box2.rotateZ(90)
 		box2.addEventListener( 'collision',
 			function( other_object, relative_velocity, relative_rotation, contact_normal ) {
