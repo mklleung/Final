@@ -543,7 +543,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 						gameState.scene= 'level2';
 
-						gameState.scene= level2;
+						
 
 					}
 					mesh.position.y = mesh.position.y - 100;
