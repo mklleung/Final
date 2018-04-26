@@ -667,11 +667,6 @@ The user moves a cube around the board trying to knock balls into a cone
 
 	}
 
-	function 5(event) {
-
-		createLevel2();
-	}
-
 	function color(event) {
 
 
