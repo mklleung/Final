@@ -581,7 +581,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		if (gameState.scene == 'youlose' && event.key=='r') {
 			gameState.scene = 'start';
 			gameState.score = 0;
-			//addBalls();
+			createMainScene();
 			return;
 		}
 		if(gameState.scene == 'start' && event.key == 'p') {
