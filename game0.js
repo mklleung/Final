@@ -173,19 +173,23 @@ The user moves a cube around the board trying to knock balls into a cone
 			scene.add(ball2);
 
 		crate = createCrate();
-		crate.position.set(0,3,15);
+		crate.position.set(-20,3,15);
+	  crate.rotateX(45)
 		scene.add(crate);
 
 		crate2 = createCrate();
-		crate2.position.set(-5,3,17);
+		crate2.position.set(0,3,17);
+		crate2.rotateZ(45)
 		scene.add(crate2);
 
 	 	crate3= createCrate();
-		crate3.position.set(-10,3,2);
+		crate3.position.set(-28,3,2);
+		crate3.rotateX(25)
 		scene.add(crate3);
 
 		crate4 = createCrate();
-		crate4.position.set(-15,3,10);
+		crate4.position.set(18,3,10);
+		crate4.rotateY(45)
 		scene.add(crate4);
 	}
 
@@ -483,7 +487,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 		function createCrate() {
 
-			var geometry = new THREE.BoxGeometry(5,20,5);
+			var geometry = new THREE.BoxGeometry(5,70,5);
 			var texture = new THREE.TextureLoader().load('../images/crate.gif');
 			texture.wrapS = THREE.RepeatWrapping;
 			texture.wrapT = THREE.RepeatWrapping;
