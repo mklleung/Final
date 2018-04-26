@@ -517,7 +517,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 
 
-	function createBall(scene){
+	function createBall(){
 		//var geometry = new THREE.SphereGeometry( 4, 20, 20);
 		var geometry = new THREE.SphereGeometry( 1, 16, 16);
 		var material = new THREE.MeshLambertMaterial( { color: 0xffff00} );
@@ -533,7 +533,7 @@ The user moves a cube around the board trying to knock balls into a cone
 					gameState.score += 1;  // add one to the score
 					if (gameState.score==numBalls) {
 						soundEffect('harp.wav');
-						gameState.scene= scene;
+						gameState.scene= 'level2';
 					}
 					mesh.position.y = mesh.position.y - 100;
 					mesh.__dirtyPosition = true;
