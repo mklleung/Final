@@ -540,11 +540,11 @@ The user moves a cube around the board trying to knock balls into a cone
 					if (gameState.score==numBalls) {
 						createLevel2();
 						soundEffect('harp.wav');
-<<<<<<< HEAD
+
 						gameState.scene= 'level2';
-=======
+
 						gameState.scene= level2;
->>>>>>> f84e30c3e77c19d28da0270b296ed19780f223a7
+
 					}
 					mesh.position.y = mesh.position.y - 100;
 					mesh.__dirtyPosition = true;
