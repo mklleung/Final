@@ -133,6 +133,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 	function createLevel2() {
 
+		scene.remove(avatar);
 		gameState.scene = "level2";
 		scene.remove(building1);
 		scene.remove(building2);
@@ -142,7 +143,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		scene.remove(building6);
 		scene.remove(building7);
 		scene.remove(ball);
-		
+
 
 		// create main camera
 		camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
