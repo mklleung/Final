@@ -129,7 +129,6 @@ The user moves a cube around the board trying to knock balls into a cone
 
 		var box1 = createBox2();
 		box1.position.set(15,3,-10);
-		box1.rotateZ(90)
 		box1.addEventListener( 'collision',
 				function( other_object, relative_velocity, relative_rotation, contact_normal ) {
 					if (other_object==avatar){
@@ -141,7 +140,6 @@ The user moves a cube around the board trying to knock balls into a cone
 		
 		var box2 = createBox2();
 		box2.position.set(15,9,-10);
-		box2.rotateY(90)
 		box2.addEventListener( 'collision',
 			function( other_object, relative_velocity, relative_rotation, contact_normal ) {
 				if (other_object==avatar){
@@ -153,7 +151,6 @@ The user moves a cube around the board trying to knock balls into a cone
 		
 		var box3 = createBox2();
 		box3.position.set(15,3,-10);
-		box3.rotateX(90);
 		box3.addEventListener( 'collision',
 			function( other_object, relative_velocity, relative_rotation, contact_normal ) {
 				if (other_object==avatar){
