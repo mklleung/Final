@@ -127,8 +127,9 @@ The user moves a cube around the board trying to knock balls into a cone
 			var skybox = createSkyBox('sky.jpg',1);
 			scene.add(skybox);
 
-		var box1 = createBox();
+		var box1 = createBox2();
 		box1.position.set(15,3,-5);
+		box1.rotateZ(90)
 		box1.addEventListener( 'collision',
 				function( other_object, relative_velocity, relative_rotation, contact_normal ) {
 					if (other_object==avatar){
@@ -138,8 +139,9 @@ The user moves a cube around the board trying to knock balls into a cone
 		)
 		scene.add(box1);
 		
-		var box2 = createBox();
+		var box2 = createBox2();
 		box2.position.set(15,9,0);
+		box2.rotateY(90)
 		box2.addEventListener( 'collision',
 			function( other_object, relative_velocity, relative_rotation, contact_normal ) {
 				if (other_object==avatar){
@@ -149,7 +151,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		)
 		scene.add(box2);
 		
-		var box3 = createBox();
+		var box3 = createBox2();
 		box3.position.set(15,3,-15);
 		box3.rotateX(90);
 		box3.addEventListener( 'collision',
@@ -540,6 +542,15 @@ The user moves a cube around the board trying to knock balls into a cone
 			texture.wrapT = THREE.RepeatWrapping;
 			texture.repeat.set( 1, 1 );
 			var material = new THREE.MeshLambertMaterial( { color: 0xffffff,  map: texture ,side:THREE.DoubleSide} );
+			var pmaterial = new Physijs.createMaterial(material,0.9,0.5);
+			var mesh = new Physijs.ConeMesh( geometry, pmaterial, 0 );
+			mesh.castShadow = true;
+			return mesh;
+		}
+
+		function createBox2(){
+			var geometry = new THREE.BoxGeometry(40,5,5);
+			var material = new THREE.MeshLambertMaterial( { color: 0xff0000,  map: texture ,side:THREE.DoubleSide} );
 			var pmaterial = new Physijs.createMaterial(material,0.9,0.5);
 			var mesh = new Physijs.ConeMesh( geometry, pmaterial, 0 );
 			mesh.castShadow = true;
