@@ -103,6 +103,13 @@ The user moves a cube around the board trying to knock balls into a cone
 
 	function createLevel2() {
 
+		scene.remove(building1);
+		scene.remove(building2);
+		scene.remove(building3);
+		scene.remove(building4);
+		scene.remove(building5);
+		scene.remove(building6);
+		scene.remove(building7);
 
 		level2Scene = initScene();
 		var light1 = createPointLight();
