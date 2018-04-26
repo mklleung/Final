@@ -116,7 +116,19 @@ The user moves a cube around the board trying to knock balls into a cone
 		ball3.position.set(20, 4, -10);
 		scene.add(ball3);
 
+<<<<<<< HEAD
 	}
+=======
+			ball3 = createBall3();
+			ball3.position.set(20, 4, -10);
+			scene.add(ball3);
+			var ground = createGround('water.png');
+			scene.add(ground);
+			var skybox = createSkyBox('sky.jpg',1);
+			scene.add(skybox);
+
+		}
+>>>>>>> de19c67129df8c7d5b3bf3f6aeda67c879d2016c
 
 	function createLevel2() {
 
