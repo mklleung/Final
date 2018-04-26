@@ -550,7 +550,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 		function createBox2(){
 			var geometry = new THREE.BoxGeometry(40,5,5);
-			var material = new THREE.MeshLambertMaterial( { color: 0xff0000,  map: texture ,side:THREE.DoubleSide} );
+			var material = new THREE.MeshLambertMaterial( { color: 0xff0000 } );
 			var pmaterial = new Physijs.createMaterial(material,0.9,0.5);
 			var mesh = new Physijs.ConeMesh( geometry, pmaterial, 0 );
 			mesh.castShadow = true;
