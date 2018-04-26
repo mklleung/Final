@@ -127,27 +127,42 @@ The user moves a cube around the board trying to knock balls into a cone
 			var skybox = createSkyBox('sky.jpg',1);
 			scene.add(skybox);
 
-			box.addEventListener( 'collision',
+		var box1 = createBox();
+		box1.position.set(15,3,-5);
+		scene.add(box1);
+		box1.addEventListener( 'collision',
 				function( other_object, relative_velocity, relative_rotation, contact_normal ) {
 					if (other_object==avatar){
 						avatar.setLinearVelocity(new THREE.Vector3(0,10,0));
 			}
 		}
 		)
-		box.addEventListener( 'collision',
+		
+		var box2 = createBox();
+		box2.position.set(15,9,0);
+		scene.add(box2);
+		box2.addEventListener( 'collision',
 			function( other_object, relative_velocity, relative_rotation, contact_normal ) {
 				if (other_object==avatar){
 					avatar.setLinearVelocity(new THREE.Vector3(0,10,0));
-		}
-	}
-	)
-	box.addEventListener( 'collision',
-		function( other_object, relative_velocity, relative_rotation, contact_normal ) {
-			if (other_object==avatar){
-				avatar.setLinearVelocity(new THREE.Vector3(0,10,0));
-	}
-}
-)
+				}
+			}
+		)
+		
+		var box3 = createBox();
+		box3.position.set(15,3,-15);
+		box3.rotateX(90);
+		scene.add(box3);
+		box3.addEventListener( 'collision',
+			function( other_object, relative_velocity, relative_rotation, contact_normal ) {
+				if (other_object==avatar){
+					avatar.setLinearVelocity(new THREE.Vector3(0,10,0));
+				}
+			}
+		)
+		
+		
+	
 	}
 
 	function createLevel2() {
