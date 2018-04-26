@@ -110,12 +110,11 @@ The user moves a cube around the board trying to knock balls into a cone
 		scene.remove(crate3);
 		scene.remove(ball2);
 		numBalls = 3;
+		ball3 = createBall3();
+		ball3.position.set(20, 4, -10);
+		scene.add(ball3);
 
-			ball3 = createBall3();
-			ball3.position.set(20, 4, -10);
-			scene.add(ball3);
-
-		}
+	}
 
 	function createLevel2() {
 
@@ -157,7 +156,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		numBalls = 2;
 
 			ball2 = createBall2();
-			ball2.position.set(randN(5)+15,randN(5)+15,randN(5)+15);
+			ball2.position.set(-4, 17, -2);
 			scene.add(ball2);
 
 		crate = createCrate();
@@ -789,6 +788,10 @@ The user moves a cube around the board trying to knock balls into a cone
 
 				case "level2":
 					updateAvatar();
+					crate.rotateX(0.1);
+					crate.rotateY(0.1);
+					crate2.rotateY(0.1);
+					crate2.rotateX(0.1);
 					edgeCam.lookAt(avatar.position);
 					scene.simulate();
 					if (gameState.camera!= 'none'){
@@ -798,10 +801,13 @@ The user moves a cube around the board trying to knock balls into a cone
 				var t = 0;
 				case "level3":
 					ball3.rotateY(0.01);
-
+					ball3.rotation.Y += 0.005;
+					ball3.position.x = 20*Math.cos(t) + 0;
+          ball3.position.z = 20*Math.sin(t) + 0;
 					updateAvatar();
 					edgeCam.lookAt(avatar.position);
 					scene.simulate();
+					renderer.render(scene, camera);
 					if (gameState.camera!= 'none'){
 						renderer.render( scene, gameState.camera );
 					}
