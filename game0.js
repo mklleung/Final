@@ -111,6 +111,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		scene.remove(crate3);
 		scene.remove(crate4);
 		scene.remove(ball2);
+		scene.remove(avatar);
 		numBalls = 3;
 		ball3 = createBall3();
 		ball3.position.set(20, 4, -10);
@@ -122,14 +123,33 @@ The user moves a cube around the board trying to knock balls into a cone
 		avatarCam.translateZ(3);
 		scene.add(avatar);
 		gameState.camera = avatarCam;
-
 			var ground = createGround('water.png');
 			scene.add(ground);
 			var skybox = createSkyBox('sky.jpg',1);
 			scene.add(skybox);
 
+			box.addEventListener( 'collision',
+				function( other_object, relative_velocity, relative_rotation, contact_normal ) {
+					if (other_object==avatar){
+						avatar.setLinearVelocity(new THREE.Vector3(0,10,0));
+			}
 		}
-
+		)
+		box.addEventListener( 'collision',
+			function( other_object, relative_velocity, relative_rotation, contact_normal ) {
+				if (other_object==avatar){
+					avatar.setLinearVelocity(new THREE.Vector3(0,10,0));
+		}
+	}
+	)
+	box.addEventListener( 'collision',
+		function( other_object, relative_velocity, relative_rotation, contact_normal ) {
+			if (other_object==avatar){
+				avatar.setLinearVelocity(new THREE.Vector3(0,10,0));
+	}
+}
+)
+	}
 
 	function createLevel2() {
 
