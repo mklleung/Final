@@ -112,7 +112,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		numBalls = 3;
 
 			ball3 = createBall3();
-			ball3.position.set(randN(5)+15,randN(5)+15,randN(5)+15);
+			ball3.position.set(20, 4, -10);
 			scene.add(ball3);
 
 		}
@@ -795,8 +795,10 @@ The user moves a cube around the board trying to knock balls into a cone
 						renderer.render( scene, gameState.camera );
 					}
 				break;
-
+				var t = 0;
 				case "level3":
+					ball3.rotateY(0.01);
+
 					updateAvatar();
 					edgeCam.lookAt(avatar.position);
 					scene.simulate();
