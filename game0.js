@@ -103,6 +103,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 	function createLevel2() {
 
+		scene.remove(ground);
 		scene.remove(building1);
 		scene.remove(building2);
 		scene.remove(building3);
@@ -148,15 +149,15 @@ The user moves a cube around the board trying to knock balls into a cone
 
 		}
 
-		crate = createCrate();
+		var crate = createCrate();
 		crate.position.set(3,13,15);
 		scene.add(crate);
 
-		crate2 = createCrate();
+		var crate2 = createCrate();
 		crate2.position.set(0, 13,17);
 		scene.add(crate2);
 
-	 	crate3= createCrate();
+	 	var crate3= createCrate();
 		crate3.position.set(-10,13,2);
 		scene.add(crate3);
 
