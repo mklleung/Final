@@ -116,19 +116,20 @@ The user moves a cube around the board trying to knock balls into a cone
 		ball3.position.set(20, 4, -10);
 		scene.add(ball3);
 
-<<<<<<< HEAD
-	}
-=======
-			ball3 = createBall3();
-			ball3.position.set(20, 4, -10);
-			scene.add(ball3);
+		avatar = createAvatar();
+		avatar.translateY(20);
+		avatarCam.translateY(-4);
+		avatarCam.translateZ(3);
+		scene.add(avatar);
+		gameState.camera = avatarCam;
+
 			var ground = createGround('water.png');
 			scene.add(ground);
 			var skybox = createSkyBox('sky.jpg',1);
 			scene.add(skybox);
 
 		}
->>>>>>> de19c67129df8c7d5b3bf3f6aeda67c879d2016c
+
 
 	function createLevel2() {
 
@@ -141,11 +142,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		scene.remove(building6);
 		scene.remove(building7);
 		scene.remove(ball);
-		var light1 = createPointLight();
-		light1.position.set(0,200,20);
-		scene.add(light1);
-		var light0 = new THREE.AmbientLight( 0xffffff,0.25);
-		scene.add(light0);
+		
 
 		// create main camera
 		camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
