@@ -142,19 +142,19 @@ The user moves a cube around the board trying to knock balls into a cone
 		}
 
 		crate = createCrate();
-		crate.position.set(0,53,15);
+		crate.position.set(0,3,15);
 		scene.add(crate);
 
 		crate2 = createCrate();
-		crate2.position.set(-5, 53,17);
+		crate2.position.set(-5, 3,17);
 		scene.add(crate2);
 
 	 	crate3= createCrate();
-		crate3.position.set(-10,53,2);
+		crate3.position.set(-10,3,2);
 		scene.add(crate3);
 
 		crate4 = createCrate();
-		crate4.position.set(-15,53,10);
+		crate4.position.set(-15,3,10);
 		scene.add(crate4);
 
 
