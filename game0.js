@@ -149,11 +149,11 @@ The user moves a cube around the board trying to knock balls into a cone
 		}
 
 		crate = createCrate();
-		crate.position.set(0,13,15);
+		crate.position.set(3,13,15);
 		scene.add(crate);
 
 		crate2 = createCrate();
-		crate2.position.set(-5, 13,17);
+		crate2.position.set(0, 13,17);
 		scene.add(crate2);
 
 	 	crate3= createCrate();
@@ -767,7 +767,8 @@ The user moves a cube around the board trying to knock balls into a cone
 
 			case "level2":
 				renderer.render(level2Scene, level2Camera);
-
+				crate2.rotateX(0.01);
+				crate3.rotateZ(0.01);
 				updateAvatar();
 				edgeCam.lookAt(avatar.position);
 				//scene.simulate();
